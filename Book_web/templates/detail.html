@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}详情页{% endblock title %}
+{% block topfiles %}
+<link rel="stylesheet" href="{% static 'css/detail.css'%}">
+{% endblock topfiles %}
+{% block body %}
+	<div class="con">
+		<div class="detail_img"><img src="{{ book.image.url }}"></div>
+		<div class="detail_text">
+			<span>标题:{{book.title}}</span>
+			<span>作者:{{book.author}}</span>
+			<span>价格:{{book.price}}</span>
+			<span>数量:{{book.count}}</span>
+			<span>详情:{{book.detail}}</span>
+		</div>
+		<a class="shopping" href="{% url 'order:index' book.id %}">购买商品</a>
+	</div>
+{% endblock body %}
+

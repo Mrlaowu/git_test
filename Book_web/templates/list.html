@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}列表页{% endblock title %}
+{% block topfiles %}
+	<link rel="stylesheet" href="{% static 'css/list.css' %}">
+{% endblock topfiles %}
+{% block body %}
+	{% for book in skus_page %}
+		<div class="con">
+			<div class="detail_img"><img src="{{ book.image.url }}"></div>
+			<div class="detail_text">
+				<span>标题:{{book.title}}</span>
+				<span>详情:{{book.detail}}</span>
+			</div>
+			<div class="detail"><a href="{% url 'books:detail' book.id %}">点击查看</a></div>
+		</div>
+	{% endfor %}
+	<div class="pagenation">
+		{% if skus_page.has_previous %}
+		<a href="{% url 'books:list' type_id skus_page.previous_page_number %}">上一页 </a>
+		{% endif %}
+		{% for pindex in pages %}
+			{% if pindex == skus_page.number %}
+				<a href="{% url 'books:list' type_id pindex %}" class="active">{{ pindex }}</a>
+			{% else %}
+				<a href="{% url 'books:list' type_id pindex %}">{{ pindex }}</a>
+			{% endif %}
+		{% endfor %}
+		{% if skus_page.has_next %}
+		<a href="{% url 'books:list' type_id skus_page.next_page_number %}">下一页</a>
+		{% endif %}
+	</div>
+{% endblock body %}

@@ -1,0 +1,110 @@
+		.menu1{
+			height:80px;
+			background-color:gold;
+			position:relative;
+			width:960px;
+			top:0px;
+			left:50%;
+			margin-left:-480px;
+			border-radius:30px;
+			margin-bottom:20px;
+		}
+		.menu1 h1{
+			text-align:center;
+			margin:20px;
+		}
+		.login{
+			list-style:none;
+			margin:0px;
+			padding:0px;
+		}
+		.login li{
+		    display:inline-block;
+			height:30px;
+			margin:10px 20px;
+			padding:0 10px;
+			background-color:cyan;
+			opacity:0.5;
+			text-align:center;
+			line-height:30px;
+			border-radius:10px;
+		}
+		.login a{
+			text-decoration:none;
+		}
+		.con{
+			width:900px;
+			height:400px;
+			margin:50px auto;
+			background-color:#FFE4C4;
+			/*opacity:0.5;*/
+			position:relative;
+		}
+	    .user_info{
+			width:900px;
+			height:500px;
+			margin:20px auto;
+			background-color:#FFE4C4;
+			/*opacity:0.5;*/
+			position:relative;
+			padding:10px;
+	    }
+        .user_info span{
+            display:block;
+            margin:5px 0;
+            padding:0px;
+        }
+
+        .recently_view{
+            display:inline-block;
+            margin:0px;
+            position:relative;
+        }
+        .recently_view a{
+            display:block;
+            position:absolute;
+            top:290px;
+            left:60px;
+            text-decoration:none;
+            opacity:50%;
+            width:80px;
+            height:30px;
+            background-color:cyan;
+            border-radius:10px;
+            text-align:center;
+            line-height:30px;
+            color:#000;
+        }
+        .recently_view a:hover{
+            color:red;
+        }
+		.daohang{
+			list-style:none;
+			margin:100px auto;
+			padding:0px;
+			width:958px;
+			height:40px;
+			border:1px solid #000;
+			/*background-color:gold;*/
+			text-align:center;
+			font-size:0;
+		}
+		.daohang li{
+			display:inline-block;
+			font-size:14px;
+			height:40px;
+		}
+		.daohang li a{
+			display:block;
+			height:40px;
+			font:normal 14px/40px 'Microsoft Yahei';
+			text-decoration:none;
+			color:#000;
+		}
+		.daohang li span{
+			display:block;
+			margin:0 30px;
+		}
+		.daohang li a:hover{
+			color:red;
+		}

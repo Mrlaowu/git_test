@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock title%}</title>
+    <script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery-ui.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/slide.js' %}"></script>
+    {# 网页顶部引入文件块　#}
+    {% block topfiles %}{% endblock topfiles %}
+</head>
+<body>
+    {# 网页顶部欢迎信息块　#}
+    {% block header_con %}
+        <div class="menu1"><h1>三维书店欢迎您</h1></div>
+        {% if user.is_authenticated %}
+        <ul class="login">
+            <li><a href="{% url 'user:profile' %}">欢迎您：{{user.username}}</a></li>
+            <li><a href="{% url 'user:register' %}">注册</a></li>
+            <li><a href="{% url 'user:logout' %}">退出</a></li>
+        </ul>
+        {% else %}
+        <ul class="login">
+            <li><a href="{% url 'user:register' %}">注册</a></li>
+            <li><a href="{% url 'user:login' %}">登录</a></li>
+        </ul>
+        {% endif %}
+    {% endblock header_con %}
+    {# 网页主题内容快　#}
+    {% block body %}{% endblock body %}
+
+    <ul class="daohang">
+		<li><a href="{% url 'books:index' %}">首页</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">网站建设</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">技术建设</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">网管建设</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">联系我们</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">网站建设</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">网站建设</a></li>
+	</ul>
+    {#　网页底部引入文件块　#}
+    {% block bottomfiles %}{% endblock bottomfiles %}
+</body>
+</html>

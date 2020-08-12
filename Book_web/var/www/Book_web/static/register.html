@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--{% load staticfiles %}-->
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+	<link rel="stylesheet" type="text/css" href="css/register.css">
+</head>
+<body>
+	<div class="con clearfix">
+		<form action="/user/login" method="post">
+			<label>用户名:</label>
+			<input type="text" name="username">
+			<label>邮箱:</label>
+			<input type="text" name="email">
+			<label>密码:</label>
+			<input type="password" name="password">
+			<label>确认密码:</label>
+			<input type="password" name="password2">
+			<input type="submit" vaule="提交">
+		</form>
+		<div class="login_button"><a href="#">已有用户,请登录</a></div>
+	</div>
+</body>
+</html>

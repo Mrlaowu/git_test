@@ -1,0 +1,47 @@
+
+		.con{
+			width:1000px;
+			height:600px;
+			background:url("1.jpg")  gold;
+			margin:200px auto;
+			opacity:0.5;
+			position:relative;
+		}
+		.con input{
+			/*position:absolute;*/
+			display:block;
+			width:150px;
+			height:30px;
+			margin:10px auto;
+			text-align:center;
+		}
+		.con label{
+			display:block;
+			width:100px;
+			height:20px;
+			margin:0 auto;
+			color:#fff;
+			background-color:#222;
+			text-align:center;
+			border-radius:10px;
+		}
+		.clearfix{
+			content:"";
+			display:table;
+		}
+		.login_button a{
+			display:block;
+			width:150px;
+			height:30px;
+			text-decoration:none;
+			color:#fff;
+			margin:20px auto;
+			background-color:#333;
+			text-align:center;
+			border-radius:10px;
+			line-height:30px
+		}
+		#errmsg{
+		    margin:10px 460px;
+		    color:red;
+		}

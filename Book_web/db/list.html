@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+	<meta charset="UTF-8">
+	<title>列表页</title>
+    <link rel="stylesheet" href="{% static 'css/list.css'%}">
+</head>
+<body>
+	<div class="menu1"><h1>三维书店欢迎您</h1></div>
+	<ul class="login">
+		<li><a href="/user/register">注册</a></li>
+		<li><a href="/user/login">登录</a></li>
+	</ul>
+	{% for book in books %}
+		<div class="con">
+			<div class="detail_img"><img src="{{ book.image.url }}"></div>
+			<div class="detail_text">
+				<span>标题:{{book.title}}</span>
+				<span>详情:{{book.detail}}</span>
+			</div>
+			<div class="detail"><a href="{% url 'books:detail' book.id %}">点击查看</a></div>
+		</div>
+	{% endfor %}
+	<ul class="daohang">
+		<li><a href="/static/index.html">首页</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">网站建设</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">技术建设</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">网管建设</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">联系我们</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">网站建设</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">网站建设</a></li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/register.css'%}">
+</head>
+<body>
+	<div class="con clearfix">
+		<form  method="post">
+			{% csrf_token %}
+			<label>用户名:</label>
+			<input type="text" name="username">
+			<label>邮箱:</label>
+			<input type="text" name="email">
+			<label>密码:</label>
+			<input type="password" name="password">
+			<label>确认密码:</label>
+			<input type="password" name="password2">
+			<input id="btn" type="submit" vaule="提交">
+		</form>
+		<div id="errmsg">
+			{{ errmsg }}
+		</div>
+		<div class="login_button"><a href="{% url 'user:login'%}">已有用户,请登录</a></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}详情页{% endblock title %}
+{% block topfiles %}
+<link rel="stylesheet" href="{% static 'css/order.css'%}">
+{% endblock topfiles %}
+{% block body %}
+	<div class="con">
+		<div class="detail_img"><img src="{{ book.image.url }}"></div>
+		<div class="detail_text">
+			{% csrf_token %}
+			<span id="uint">单价:<span id="price">{{book.price}}</span></span>
+			<span id="count">
+				<a class="update_add" href="javascript:;">+</a>
+				<input type="text" name="count" value="1">
+				<a class="update_decreate" href="javascript:;">-</a>
+			</span>
+			<span id="s">总价：<span id="amount" >{{book.price}}</span></span>
+			<a id="{{book.id}}" class="shopping" href="javascript:;">用户支付</a>
+		</div>
+	</div>
+{% endblock body %}
+{% block bottomfiles %}
+	<script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+	<script>
+		$(function(){
+			//获取初始数量
+			count=$(":text").val()
+			//获取初始价格
+			amount=$("#amount").text()
+			$(".update_add").click(function(){
+				count=$(":text").val()
+				count=parseInt(count)+1
+				$(":text").val(count)
+				//获取单价
+				price=$("#price").text()
+				//计算总价格
+				count=parseInt(count)
+				price=parseFloat(price)
+				amount=price*count
+				$("#amount").html(amount)
+			})
+			$(".update_decreate").click(function(){
+				count=$(":text").val()
+				count=parseInt(count)-1
+				$(":text").val(count)
+				//获取单价
+				price=$("#price").text()
+				//计算总价格
+				count=parseInt(count)
+				price=parseFloat(price)
+				amount=price*count
+				$("#amount").html(amount)
+			})
+			//点击购买、发送ajax请求
+			$(".shopping").click(function(){
+				//获取商品的总价、数量、book_id、csrf
+				book_id=$(".shopping").prop("id")
+				csrf= $('input[name="csrfmiddlewaretoken"]').val()
+				//组织参数
+				params={
+					"book_id":book_id,
+					"count":count,
+					"amount":amount,
+					'csrfmiddlewaretoken':csrf
+				}
+				//发送ajax post请求　访问/book/order_pay params:book_id、、
+				//设置ajax请求为同步
+				$.ajaxSettings.async=false
+				$.post('/order/pay',params,function(data){
+					if(data.res==0){
+						//跳转到支付宝的页面
+						window.open(data.pay_url)
+						//浏览器访问/books/order_check,获取支付的结果
+						//ajax post 参数book_id、count、order_id
+						params={
+							"book_id":book_id,
+							"count":count,
+							'csrfmiddlewaretoken':csrf,
+							'order_id':data.order_id
+						}
+						$.post('/order/check',params,function(data){
+							if(data.res==0){
+								alert('支付成功')
+							}
+							else{
+								alert(data.errmsg)
+							}
+						})
+					}
+					else{
+						alert(data.errmsg)
+					}
+				})
+
+			})
+		})
+	</script>
+{% endblock bottomfiles %}

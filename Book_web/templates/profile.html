@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}用户中心{% endblock title %}
+{% block topfiles %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock topfiles %}
+{% block body %}
+    <div class="user_info">
+        <h3>个人信息:</h3>
+        <span>姓名：{{ user.username }}</span>
+        <span>邮箱：{{ user.email }}</span>
+        <h3>浏览记录:</h3>
+        {% for book in books %}
+        <div class="recently_view">
+            <img src="{{ book.image.url }}" style="transform:scale(0.8)">
+            <a href="{% url 'books:detail' book.id%}">观看详情</a>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock body %}

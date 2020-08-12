@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}主页{% endblock title%}
+{% block topfiles %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock topfiles %}
+{% block body %}
+	<ul class="menu">
+		{% for type in types %}
+		<li><a href="{% url 'books:list' type.id 1%}">{{type.name}}</a></li>
+		{% endfor %}
+	</ul>
+	<div class="books_index">
+		{% for book in books %}
+			<ul class="book_data clearfix">
+				<li><img src="{{book.image.url}}"></li>
+				<li id="book_title">{{book.title}}</li>
+				<a href="{% url 'books:detail' book.id%}">观看详情</a>
+			</ul>
+		{% endfor %}
+	</div>
+{% endblock body %}

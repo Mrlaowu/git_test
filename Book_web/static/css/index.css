@@ -1,0 +1,155 @@
+		.menu1{
+			height:80px;
+			background-color:gold;
+			position:relative;
+			width:960px;
+			top:0px;
+			left:50%;
+			margin-left:-480px;
+			border-radius:30px;
+			margin-bottom:20px;
+		}
+		.menu1 h1{
+			text-align:center;
+			margin:20px;
+		}
+		.login{
+			list-style:none;
+			margin:0px;
+			padding:0px;
+			left:20%;
+			background:red;
+		}
+		.login li{
+		    display:inline-block;
+			height:30px;
+			margin:10px 20px;
+			padding:0 10px;
+			background-color:cyan;
+			opacity:0.5;
+			text-align:center;
+			line-height:30px;
+			border-radius:10px;
+		}
+		.login li a{
+			display:block;
+			text-decoration:none;
+			text-align:center;
+			color:#000;
+		}
+		.menu{
+			width:694px;
+			height:50px;
+			/*background-color:cyan;*/
+			/*去掉小圆点*/
+			list-style:none;
+			margin:20px auto;
+			/*列表本身含padding*/
+			padding:0;
+			font-size:0;
+		}
+		.menu li{
+			width:98px;
+			height:48px;
+			border:1px solid gold;
+			background-color:#fff;
+			display:inline-block;
+			font-size:16px;
+			margin-left:-1px;
+			/*父元素可以用text-align属性设置子元素水平对齐方式*/
+			/*text-align:center;*/
+	/*		line-height:48px;*/
+		}
+		/*对链接样式进行设置*/
+		.menu li a{
+			/*background:gold;*/
+			/*将链接转化为块元素*/
+			display: block;
+			/*水平居中*/
+			text-align:center;
+			/*垂直居中*/
+			line-height:48px;
+			/*取消下划线*/
+			text-decoration:none;
+			font-size:16px;
+			font-family:'Microsofo Yahei';
+			color:pink;
+		}
+		/*鼠标移动时改变属性*/
+		.menu li a:hover{
+			background-color:gold;
+			color:#fff;
+		}
+
+		.daohang{
+			list-style:none;
+			margin:80px auto;
+			padding:0px;
+			width:958px;
+			height:40px;
+			border:1px solid #000;
+			/*background-color:gold;*/
+			text-align:center;
+			font-size:0;
+		}
+		.daohang li{
+			display:inline-block;
+			font-size:14px;
+			height:40px;
+		}
+		.daohang li a{
+			display:block;
+			height:40px;
+			font:normal 14px/40px 'Microsoft Yahei';
+			text-decoration:none;
+			color:#000;
+		}
+		.daohang li span{
+			display:block;
+			margin:0 30px;
+		}
+		.daohang li a:hover{
+			color:red;
+		}
+		.books_index{
+            width:1028px;
+
+		    background:#AEEEEE;
+		    margin:0px auto;
+		}
+		.book_data{
+		    display:inline-block;
+		    list-style:none;
+		    margin:20px 20px;
+		    margin-right:-1px;
+		    padding:0px;
+		    width:230px;
+		    height:350px;
+		    position:relative;
+		}
+        #book_title{
+            width:80px;
+            height:30px;
+            margin:0px 30px;
+            border-radius:10px;
+            background-color:#DCDCDC;
+            text-align:center;
+            lien-height:30px;
+        }
+        .book_data a{
+            position:absolute;
+            display:block;
+            width:80px;
+            height:30px;
+            left:130px;
+            top:316px;
+            background-color:#DCDCDC;
+            border-radius:10px;
+            text-align:center;
+            text-decoration:none;
+            line-height:30px;
+            color:#000;
+        }
+        .book_data a:hover{
+            color:red;
+        }
