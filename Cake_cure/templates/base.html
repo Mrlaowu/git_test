@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    {# 网页标题内容快 #}
+    <title>{% block title %}{% endblock %}</title>
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery-ui.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/slide.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/template.js' %}"></script>
+</head>
+    {# 网页顶部引入文件块 #}
+    {% block topfiles %}{% endblock topfiles %}
+<body>
+    <div class="header_con">
+		<div class="header">
+			<div class="welcome fl">欢迎来到Cake_烘焙坊!</div>
+			<div class="fr">
+				{% if user.is_authenticated %}
+				<div class="login_btn fl">
+					<a href="/user/info">{{user.username}}</a>
+					<span>|</span>
+					<a href="/user/register">注册</a>
+					<span>|</span>
+					<a href="/user/logout">退出</a>
+				</div>
+				{% else %}
+				<div class="login_btn fl">
+					<a href="/user/login">登录</a>
+					<span>|</span>
+					<a href="/user/register">注册</a>
+				</div>
+				{% endif %}
+				<div class="user_link fl">
+					<span>|</span>
+					<a href="/user/info">用户中心</a>
+					<span>|</span>
+					<a href="/cart/info">我的购物车</a>
+					<span>|</span>
+					<a href="/user/order">我的订单</a>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="menu1"><h1>Cake_烘焙坊</h1></div>
+    {# 我的购物车 #}
+    {% block cart %}{% endblock %}
+    {# 用户中心基类模块 #}
+    {% block user %}{% endblock %}
+    {# 文件正文模块 #}
+    {% block body%}{% endblock %}
+	{% block daohang%}
+    <ul class="daohang">
+		<li><a href="/">首页</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">网站建设</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">技术建设</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">网管建设</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">联系我们</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">网站建设</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">网站建设</a></li>
+	</ul>
+	{% endblock %}
+    {# 网页顶部引入文件块　#}
+    {% block bottomfiles %}{% endblock bottomfiles %}
+</body>
+</html>

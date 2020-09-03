@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>详情页</title>
+    <link rel="stylesheet" href="css/detail.css">
+</head>
+<body>
+	<div class="header_con">
+		<div class="header">
+			<div class="welcome fl">欢迎来到Cake_烘焙坊!</div>
+			<div class="fr">
+				<div class="login_btn fl">
+					<a href="login.html">登录</a>
+					<span>|</span>
+					<a href="register.html">注册</a>
+				</div>
+				<div class="user_link fl">
+					<span>|</span>
+					<a href="user_center_info.html">用户中心</a>
+					<span>|</span>
+					<a href="cart.html">我的购物车</a>
+					<span>|</span>
+					<a href="user_center_order.html">我的订单</a>
+				</div>
+			</div>
+		</div>		
+	</div>
+	<div class="menu1"><h1>Cake_烘焙坊</h1></div>
+	<div class="guest_cart fr">
+		<a href="#" class="cart_name fl">我的购物车</a>
+		<div class="goods_count fl" id="show_count">1</div>
+	</div>
+	<div class="con">
+		<div class="detail_img"><img src="static/image/1.jpg"></div>
+		<div class="detail_text">
+			<span>名称:{{book.title}}</span>
+			<span>价格:{{book.author}}</span>
+			<span>单位:{{book.price}}</span>
+			<span>库存:{{book.count}}</span>
+			<span>简介:{{book.detail}}</span>
+		</div>
+		<a class="shopping" href="{% url 'order:index' book.id %}">购买商品</a>
+		<a class="join_cart" href="{% url 'order:index' book.id %}">添加购物车</a>
+	</div>
+	<ul class="daohang">
+		<li><a href="/static/index.html">首页</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">网站建设</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">技术建设</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">网管建设</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">联系我们</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">网站建设</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">网站建设</a></li>
+	</ul>
+</body>
+</html>

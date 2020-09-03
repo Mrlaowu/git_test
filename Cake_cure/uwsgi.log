@@ -1,0 +1,157 @@
+*** Starting uWSGI 2.0.18 (64bit) on [Thu Sep  3 09:31:08 2020] ***
+compiled with version: 7.5.0 on 30 May 2020 02:46:53
+os: Linux-5.4.0-42-generic #46~18.04.1-Ubuntu SMP Fri Jul 10 07:21:24 UTC 2020
+nodename: sky-virtual-machine
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/sky/bj18/Cake_cure
+writing pidfile to uwsgi.pid
+detected binary path: /home/sky/.virtualenvs/bj18_py01/bin/uwsgi
+your processes number limit is 15062
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8001 fd 3
+Python version: 3.6.9 (default, Jul 17 2020, 12:50:27)  [GCC 8.4.0]
+PEP 405 virtualenv detected: /home/sky/.virtualenvs/bj18_py01
+Set PythonHome to /home/sky/.virtualenvs/bj18_py01
+Python main interpreter initialized at 0x5629f96a4cd0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416720 bytes (406 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x5629f96a4cd0 pid: 3642 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 3642)
+spawned uWSGI worker 1 (pid: 3644, cores: 2)
+spawned uWSGI worker 2 (pid: 3645, cores: 2)
+spawned uWSGI worker 3 (pid: 3647, cores: 2)
+spawned uWSGI worker 4 (pid: 3648, cores: 2)
+Thu Sep  3 09:42:17 2020 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Thu Sep  3 09:42:17 2020 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Thu Sep  3 09:42:17 2020 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+*** Starting uWSGI 2.0.18 (64bit) on [Thu Sep  3 09:44:10 2020] ***
+compiled with version: 7.5.0 on 30 May 2020 02:46:53
+os: Linux-5.4.0-42-generic #46~18.04.1-Ubuntu SMP Fri Jul 10 07:21:24 UTC 2020
+nodename: sky-virtual-machine
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/sky/bj18/Cake_cure
+writing pidfile to uwsgi.pid
+detected binary path: /home/sky/.virtualenvs/bj18_py01/bin/uwsgi
+your processes number limit is 15062
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+Python version: 3.6.9 (default, Jul 17 2020, 12:50:27)  [GCC 8.4.0]
+PEP 405 virtualenv detected: /home/sky/.virtualenvs/bj18_py01
+Set PythonHome to /home/sky/.virtualenvs/bj18_py01
+Python main interpreter initialized at 0x55b5092e7cd0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416720 bytes (406 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x55b5092e7cd0 pid: 3749 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 3749)
+spawned uWSGI worker 1 (pid: 3751, cores: 2)
+spawned uWSGI worker 2 (pid: 3752, cores: 2)
+spawned uWSGI worker 3 (pid: 3753, cores: 2)
+spawned uWSGI worker 4 (pid: 3755, cores: 2)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+[pid: 3751|app: 0|req: 1/1] 127.0.0.1 () {52 vars in 883 bytes} [Thu Sep  3 11:22:55 2020] GET /favicon.ico => generated 85 bytes in 21948 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 3753|app: 0|req: 2/2] 127.0.0.1 () {52 vars in 883 bytes} [Thu Sep  3 11:22:55 2020] GET /favicon.ico => generated 85 bytes in 21570 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 3753|app: 0|req: 2/3] 127.0.0.1 () {48 vars in 830 bytes} [Thu Sep  3 11:22:51 2020] GET /favicon.ico => generated 85 bytes in 25711 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 3755|app: 0|req: 1/4] 127.0.0.1 () {48 vars in 830 bytes} [Thu Sep  3 11:22:48 2020] GET /favicon.ico => generated 85 bytes in 28764 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+[pid: 3753|app: 0|req: 3/5] 127.0.0.1 () {48 vars in 830 bytes} [Thu Sep  3 11:23:34 2020] GET /favicon.ico => generated 85 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 3753|app: 0|req: 4/6] 127.0.0.1 () {48 vars in 842 bytes} [Thu Sep  3 11:25:29 2020] GET /favicon.ico => generated 85 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 3751|app: 0|req: 2/7] 127.0.0.1 () {50 vars in 936 bytes} [Thu Sep  3 11:26:58 2020] GET /detail => generated 0 bytes in 1 msecs (HTTP/1.1 301) 3 headers in 144 bytes (1 switches on core 0)
+---------这是缓存----------
+[pid: 3753|app: 0|req: 5/8] 127.0.0.1 () {50 vars in 924 bytes} [Thu Sep  3 11:28:22 2020] GET / => generated 3893 bytes in 11969 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3753|app: 0|req: 6/9] 127.0.0.1 () {52 vars in 955 bytes} [Thu Sep  3 11:33:30 2020] GET / => generated 3893 bytes in 182 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+[<Cake_Sku: Cake_慕斯>, <Cake_Sku: Cake_慕斯2>]
+[pid: 3753|app: 0|req: 7/10] 127.0.0.1 () {52 vars in 985 bytes} [Thu Sep  3 11:33:39 2020] GET /list/1/1 => generated 2606 bytes in 139 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[<Cake_Sku: 卷式切片>]
+[pid: 3752|app: 0|req: 1/11] 127.0.0.1 () {52 vars in 985 bytes} [Thu Sep  3 11:33:45 2020] GET /list/3/1 => generated 2236 bytes in 4088 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3751|app: 0|req: 3/12] 127.0.0.1 () {52 vars in 985 bytes} [Thu Sep  3 11:34:01 2020] GET /detail/1 => generated 4065 bytes in 642 msecs (HTTP/1.1 200) 4 headers in 224 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.18 (64bit) on [Thu Sep  3 11:38:42 2020] ***
+compiled with version: 7.5.0 on 30 May 2020 02:46:53
+os: Linux-5.4.0-42-generic #46~18.04.1-Ubuntu SMP Fri Jul 10 07:21:24 UTC 2020
+nodename: sky-virtual-machine
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/sky/bj18/Cake_cure
+writing pidfile to uwsgi.pid
+detected binary path: /home/sky/.virtualenvs/bj18_py01/bin/uwsgi
+your processes number limit is 15062
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+Python version: 3.6.9 (default, Jul 17 2020, 12:50:27)  [GCC 8.4.0]
+PEP 405 virtualenv detected: /home/sky/.virtualenvs/bj18_py01
+Set PythonHome to /home/sky/.virtualenvs/bj18_py01
+Python main interpreter initialized at 0x56323e8e9cd0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416720 bytes (406 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 6 seconds on interpreter 0x56323e8e9cd0 pid: 5546 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 5546)
+spawned uWSGI worker 1 (pid: 5550, cores: 2)
+spawned uWSGI worker 2 (pid: 5551, cores: 2)
+spawned uWSGI worker 3 (pid: 5553, cores: 2)
+spawned uWSGI worker 4 (pid: 5555, cores: 2)
+---------这是缓存----------
+[pid: 5553|app: 0|req: 1/1] 127.0.0.1 () {52 vars in 955 bytes} [Thu Sep  3 11:38:55 2020] GET / => generated 3893 bytes in 428 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 5550|app: 0|req: 1/2] 127.0.0.1 () {52 vars in 985 bytes} [Thu Sep  3 11:39:03 2020] GET /detail/1 => generated 4065 bytes in 2588 msecs (HTTP/1.1 200) 4 headers in 224 bytes (1 switches on core 0)
+[pid: 5553|app: 0|req: 2/3] 127.0.0.1 () {52 vars in 995 bytes} [Thu Sep  3 11:39:28 2020] GET /cart/info => generated 3569 bytes in 161 msecs (HTTP/1.1 200) 4 headers in 224 bytes (1 switches on core 1)
+[pid: 5553|app: 0|req: 3/4] 127.0.0.1 () {56 vars in 1037 bytes} [Thu Sep  3 11:39:42 2020] POST /order/create => generated 10 bytes in 400 msecs (HTTP/1.1 200) 3 headers in 94 bytes (1 switches on core 0)
+[pid: 5551|app: 0|req: 1/5] 127.0.0.1 () {52 vars in 999 bytes} [Thu Sep  3 11:39:50 2020] GET /user/info => generated 2314 bytes in 5859 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 5550|app: 0|req: 2/6] 127.0.0.1 () {52 vars in 1000 bytes} [Thu Sep  3 11:40:03 2020] GET /user/order/ => generated 2978 bytes in 70 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 5553|app: 0|req: 4/7] 127.0.0.1 () {52 vars in 1005 bytes} [Thu Sep  3 11:40:15 2020] GET /user/order/3 => generated 2977 bytes in 50 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+---------这是缓存----------
+[pid: 5550|app: 0|req: 3/8] 127.0.0.1 () {52 vars in 981 bytes} [Thu Sep  3 11:47:48 2020] GET / => generated 3893 bytes in 180 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 5553|app: 0|req: 5/9] 127.0.0.1 () {52 vars in 995 bytes} [Thu Sep  3 11:47:59 2020] GET /user/info => generated 2314 bytes in 131 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 5553|app: 0|req: 6/10] 127.0.0.1 () {52 vars in 998 bytes} [Thu Sep  3 11:48:08 2020] GET /user/addr => generated 2897 bytes in 72 msecs (HTTP/1.1 200) 4 headers in 224 bytes (1 switches on core 1)
+[pid: 5553|app: 0|req: 7/11] 127.0.0.1 () {52 vars in 980 bytes} [Thu Sep  3 11:48:22 2020] GET / => generated 3893 bytes in 52 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 5551|app: 0|req: 2/12] 127.0.0.1 () {56 vars in 1025 bytes} [Thu Sep  3 11:48:29 2020] POST /cart/add => generated 28 bytes in 146 msecs (HTTP/1.1 200) 3 headers in 94 bytes (1 switches on core 1)
+[pid: 5550|app: 0|req: 4/13] 127.0.0.1 () {52 vars in 1002 bytes} [Thu Sep  3 11:48:39 2020] GET /order/commit => generated 3687 bytes in 71 msecs (HTTP/1.1 200) 4 headers in 224 bytes (1 switches on core 1)
+[pid: 5555|app: 0|req: 1/14] 127.0.0.1 () {52 vars in 1005 bytes} [Thu Sep  3 11:49:09 2020] GET /user/order/1 => generated 3027 bytes in 3049 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)

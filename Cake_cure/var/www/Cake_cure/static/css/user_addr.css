@@ -1,0 +1,192 @@
+/* 顶部样式 */
+.header_con{
+	background-color:#f7f7f7;
+	height:29px;
+	border-bottom:1px solid #dddddd
+}
+
+.header{
+	width:1200px;
+	height:29px;
+	margin:0 auto;
+}
+
+.welcome,.login_info,.login_btn,.user_link{
+	line-height:29px;
+}
+
+.login_info{
+	display:none;
+}
+
+.login_info em{color:#ff8800}
+
+.login_btn a,.user_link a{
+	color:#666;
+}
+
+.login_btn a:hover,.user_link a:hover{
+	color:#ff8800;
+}
+
+.login_btn span,.user_link span{
+	color:#cecece;
+	margin:0 10px;
+}
+
+/*购物车样式*/
+.guest_cart{
+	width:200px;height:40px;position:absolute; top:135px;right:160px;
+}
+
+
+.guest_cart .cart_name{
+	width:158px;height:38px;line-height:38px;border:1px solid #dddddd;display:block;background:url("icons.png") 13px -300px no-repeat;font-size:14px;color:#37ab40;text-indent:56px;
+}
+
+.guest_cart .goods_count{
+	width:40px;height:40px;text-align:center;line-height:40px;font-size:18px;
+	font-weight:bold;color:#fff;background-color:#ff8800;
+}
+
+/* 把标签默认的间距设为0 */
+body,ul,ol,p,h1,h2,h3,h4,h5,h6,dl,dd,select,input,textarea,form{margin:0;padding:0}
+
+
+/* 去掉列表默认的图标 */
+ul,ol{list-style:none;}
+
+/* 去掉em默认的斜体 */
+em{font-style: normal;}
+
+/* 去掉a标签默认的下划线 */
+a{text-decoration:none;}
+
+
+/* 去掉加链接时产生的框线 */
+img{border:0;}
+
+/* 清除浮动 */
+.clearfix:before,.clearfix:after{content:"";display:table}
+.clearfix:after{clear:both;}
+.clearfix{zoom:1}
+
+/* 浮动 */
+.fl{float:left}
+.fr{float:right}
+
+
+.menu1{
+height:80px;
+background-color:gold;
+position:relative;
+width:960px;
+top:0px;
+left:50%;
+margin-left:-480px;
+border-radius:30px;
+margin-bottom:20px;
+opacity:40%;
+}
+.menu1 h1{
+text-align:center;
+margin:20px;
+line-height:80px;
+}
+
+.user_order_addr_info{
+list-style:none;
+width:400px;
+height:40px;
+margin:0px auto;
+padding:0px;
+left:100px;
+}
+.user_order_addr_info li{
+display:inline-block;
+height:30px;
+margin:0px 10px;
+padding:0 10px;
+background-color:cyan;
+opacity:0.5;
+text-align:center;
+line-height:30px;
+border-radius:10px;
+}
+.user_order_addr_info li a{
+display:block;
+text-decoration:none;
+text-align:center;
+color:#000;
+}
+
+.user_order_addr_info li a:hover{
+	background-color:gold;
+}
+
+.right_content{
+	width:800px;
+	height:480px;
+	margin:20px auto;
+	background-color:	#FFFAF0;
+	position:relative;
+}
+
+.form_group{
+	margin:20px;
+}
+.common_title2{
+	padding:10px;
+}
+
+.site_con{
+	margin:10px;
+	padding:10px;
+	background: #F5F5F5;
+}
+
+.info_submit{
+	position:absolute;
+	width:50px;
+	height: 30px;
+	border-radius:10px;
+	background:cyan;
+	opacity:50%;
+	left:30px;
+	bottom:20px;
+}
+
+.info_submit:hover{
+	color:red;
+}
+.daohang{
+list-style:none;
+margin:100px auto;
+padding:0px;
+width:958px;
+height:40px;
+border:1px solid #000;
+/*background-color:gold;*/
+text-align:center;
+font-size:0;
+}
+.daohang li{
+display:inline-block;
+font-size:14px;
+height:40px;
+}
+.daohang li a{
+display:block;
+height:40px;
+font:normal 14px/40px 'Microsoft Yahei';
+text-decoration:none;
+color:#000;
+}
+.daohang li span{
+display:block;
+margin:0 30px;
+}
+.daohang li a:hover{
+color:red;
+}
+

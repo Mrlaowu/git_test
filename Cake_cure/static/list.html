@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>列表页</title>
+    <link rel="stylesheet" href="css/list.css">
+</head>
+<body>
+	<div class="header_con">
+		<div class="header">
+			<div class="welcome fl">欢迎来到Cake_烘焙坊!</div>
+			<div class="fr">
+				<div class="login_btn fl">
+					<a href="login.html">登录</a>
+					<span>|</span>
+					<a href="register.html">注册</a>
+				</div>
+				<div class="user_link fl">
+					<span>|</span>
+					<a href="user_center_info.html">用户中心</a>
+					<span>|</span>
+					<a href="cart.html">我的购物车</a>
+					<span>|</span>
+					<a href="user_center_order.html">我的订单</a>
+				</div>
+			</div>
+		</div>		
+	</div>
+	<div class="menu1"><h1>Cake_烘焙</h1></div>
+	<div class="guest_cart fr">
+		<a href="#" class="cart_name fl">我的购物车</a>
+		<div class="goods_count fl" id="show_count">1</div>
+	</div>
+	<div class="con">
+		<div class="detail_img"><img src="/static/image/1.jpg" alt="book_image"></div>
+		<li id="cake_name" onclick="#">摩斯蛋糕</li>
+		<div class="detail"><a href="{% url 'books:detail' book.id %}">查看详情</a></div>
+	</div>
+	<div class="pagenation">
+		<a href="{% url 'books:list' type_id skus_page.previous_page_number %}">上一页 </a>
+		<a href="{% url 'books:list' type_id skus_page.next_page_number %}">下一页</a>
+	</div>
+	<ul class="daohang">
+		<li><a href="/static/index.html">首页</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">网站建设</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">技术建设</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">网管建设</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">联系我们</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">网站建设</a></li>
+		<li><span>|</span></li>
+		<li><a href="#">网站建设</a></li>
+	</ul>
+</body>
+</html>

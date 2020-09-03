@@ -1,0 +1,11 @@
+{# 首页　列表页　详情页　#}
+{% extends "base.html" %}
+{# 购物车模板基类 #}
+{% load staticfiles %}
+{# 购物车部分 #}
+{% block cart %}
+	<div class="guest_cart fr">
+		<a href="/cart/info" class="cart_name fl">我的购物车</a>
+		<div class="goods_count fl" id="show_count">0</div>
+	</div>
+{% endblock %}

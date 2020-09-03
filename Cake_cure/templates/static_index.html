@@ -1,0 +1,22 @@
+{% extends "base_hav_cart.html" %}
+{% load staticfiles %}
+{% block title %}主页{% endblock %}
+{% block topfiles %}
+	<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+{% block body %}
+	<ul class="menu">
+		{% for type in types %}
+			<li><a href="list/{{type.id}}/1">{{ type }}</a></li>
+		{% endfor %}
+	</ul>
+	<div class="cakes_index">
+		{% for cake in cakes %}
+			<ul class="book_data clearfix">
+				<li><img src="{{ cake.image.url }}"></li>
+				<li id="book_title" onclick="#">{{cake.name}}</li>
+				<a href="/detail/{{ cake.id }}">查看详情</a>
+			</ul>
+		{% endfor %}
+	</div>
+{% endblock %}

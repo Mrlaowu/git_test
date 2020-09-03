@@ -1,0 +1,33 @@
+{% extends "base_hav_cart.html" %}
+{% load staticfiles %}
+{% block title %}列表页{% endblock%}
+{% block topfiles %}
+    <link rel="stylesheet" href="{% static 'css/list.css' %}">
+{% endblock %}
+{% block body%}
+	<div class="con">
+		{% for cake in cakes_page %}
+		<div class="cake_data">
+			<div class="detail_img"><img src="{{cake.image.url}}" alt="book_image"></div>
+			<li id="cake_name" onclick="#">{{cake.name}}</li>
+			<div class="detail"><a href="#">查看详情</a></div>
+		</div>
+		{% endfor %}
+	</div>
+	{{ errmsg }}
+	<div class="pagenation">
+		{% if cakes_page.has_previous %}
+		<a href="{% url 'cake:list' type.id cakes_page.previous_page_number %}">上一页</a>
+		{% endif %}
+		{% for pindex in pages %}
+			{% if pindex == cakes_page.number %}
+				<a href="{% url 'cake:list' type.id pindex %}" class="active">{{ pindex }}</a>
+			{% else %}
+				<a href="{% url 'cake:list' type.id pindex %}">{{ pindex }}</a>
+			{% endif %}
+		{% endfor %}
+		{% if cakes_page.has_next %}
+		<a href="{% url 'cake:list' type.id cakes_page.next_page_number %}">下一页></a>
+		{% endif %}
+	</div>
+{% endblock %}

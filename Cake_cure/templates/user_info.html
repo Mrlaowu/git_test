@@ -1,0 +1,20 @@
+{% extends 'base_user.html' %}
+{% load staticfiles %}
+{% block title %}用户中心页{% endblock %}
+{% block topfiles %}
+	<link rel="stylesheet" href="{% static 'css/user_info.css' %}">
+{% endblock %}
+{% block body %}
+    <div class="user_info">
+        <h3>个人信息:</h3>
+        <span>姓名：{{ user.username }}</span>
+        <span>邮箱：{{ user.email }}</span>
+        <h3>浏览记录:</h3>
+        {% for cake in cakes %}
+        <div class="recently_view">
+            <img src="{{ cake.image.url }}" style="transform:scale(1)">
+            <a href="detail/{{ cake.id }}">观看详情</a>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

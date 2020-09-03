@@ -1,0 +1,74 @@
+
+		.con{
+			width:1000px;
+			height:600px;
+			background:url("3.png")  gold no-repeat;
+			margin:200px auto;
+			opacity:0.5;
+			position:relative;
+		}
+		.con input{
+			/*position:absolute;*/
+			display:block;
+			width:150px;
+			height:30px;
+			border-radius:10px;
+			margin:10px auto;
+			text-align:center;
+		}
+		.mobile_code{
+			position:absolute;
+			left:585px;
+			top:180px;
+			width:80px;
+			height:40px;
+			background:	#7FFFD4;
+			border-radius:15px;
+			opacity:50%;
+		}
+		.mobile_code a{
+			text-decoration:none;
+			line-height:40px;
+			color:red;
+			text-align:center;
+		}
+		.image_code{
+			position:absolute;
+			left:585px;
+			top:107px;
+			width:80px;
+			height:40px;
+			background:	#7FFFD4;
+			border-radius:15px;
+			opacity:50%;
+		}
+		.con label{
+			display:block;
+			width:100px;
+			height:20px;
+			margin:0 auto;
+			color:#fff;
+			background-color:#222;
+			text-align:center;
+			border-radius:10px;
+		}
+		.clearfix{
+			content:"";
+			display:table;
+		}
+		.login_button a{
+			display:block;
+			width:150px;
+			height:30px;
+			text-decoration:none;
+			color:#fff;
+			margin:20px auto;
+			background-color:#333;
+			text-align:center;
+			border-radius:10px;
+			line-height:30px
+		}
+		#errmsg{
+		    margin:10px 460px;
+		    color:red;
+		}

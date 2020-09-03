@@ -1,0 +1,88 @@
+{% extends "base_hav_cart.html" %}
+{% load staticfiles %}
+{% block title %}详情页{% endblock %}
+{% block topfiles %}
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+{% endblock %}
+{% block body %}
+	<div class="con">
+		{% for cake in cakes %}
+		<div class="detail_img"><img src="{{ cake.image.url }}"></div>
+		<div class="detail_text">
+			{% csrf_token %}
+			<span>名称:{{cake.name}}</span>
+			<span id="price" class="{{cake.price}}">价格:{{cake.price}}</span>
+			<span>单位:{{cake.unit}}</span>
+			<span>库存:{{cake.stock}}</span>
+			<span id="cake_id" class="{{cake.id}}">简介:{{cake.desc}}</span>
+		</div>
+		<div class="cake_count">
+			<a id="add" href="javascript:;">+</a><input type="text" value="1" id="num"><a id="cut" href="javascript:;">-</a>
+		</div>
+		<h3>总价：</h3>
+		<div class="total_price">{{cake.price}}</div>
+<!--		<a class="shopping" href="/order/commit">购买商品</a>-->
+		<a class="join_cart" href="javascript:;">添加购物车</a>
+		{% endfor %}
+		{{ errmsg }}
+	</div>
+{% endblock %}
+{% block bottomfiles %}
+	<script>
+		$(function(){
+			//获取商品数量
+			count=$(":text").val()
+			//获取商品总价
+			total_price=parseInt($("#price").prop("class"))
+			//商品数量相加
+			$('#add').click(function(){
+				count=$(":text").val()
+				count=parseInt(count)+1
+				$(":text").val(count)
+				//获取单价
+				price=parseInt($("#price").prop("class"))
+				total_price=count*price
+				$(".total_price").text(total_price)
+				return false
+			})
+			//商品数量相减
+			$('#cut').click(function(){
+				if (parseInt($("#num").val())<0){
+					$("#num").val("0")
+				}
+
+				count=parseInt($("#num").val())-1
+				$(":text").val(count)
+				price=parseInt($("#price").prop("class"))
+				total_price=count*price
+				$(".total_price").text(total_price)
+				return false
+			})
+			//点击加入购物车
+			$(".join_cart").click(function(){
+
+				//获取参数
+				cake_id=$("#cake_id").prop("class")
+				csrf_token=$('input[name="csrfmiddlewaretoken"]').val()
+				//组织参数
+				params={
+					"cake_id":cake_id,
+					"count":count,
+					"total_price":total_price,
+					"csrfmiddlewaretoken":csrf_token
+				}
+				//发送ajax post请求  访问/cake/add
+				$.post("/cart/add",params,function(data){
+					if (data.res == 0){
+					//添加成功
+						$("#show_count").html(data.total_count)
+						alert("添加成功！")
+					}
+					else{
+						alert(data.errmsg)
+					}
+				})
+			})
+		})
+	</script>
+{% endblock %}

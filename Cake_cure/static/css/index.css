@@ -1,0 +1,235 @@
+
+/* 顶部样式 */
+.header_con{
+	background-color:#f7f7f7;
+	height:29px;
+	border-bottom:1px solid #dddddd
+}
+
+.header{
+	width:1200px;
+	height:29px;
+	margin:0 auto;
+}
+
+.welcome,.login_info,.login_btn,.user_link{
+	line-height:29px;
+}
+
+.login_info{
+	display:none;
+}
+
+.login_info em{color:#ff8800}
+
+.login_btn a,.user_link a{
+	color:#666;
+}
+
+.login_btn a:hover,.user_link a:hover{
+	color:#ff8800;
+}
+
+.login_btn span,.user_link span{
+	color:#cecece;
+	margin:0 10px;
+}
+
+/*购物车样式*/
+.guest_cart{
+	width:200px;height:40px;position:absolute; top:135px;right:120px;
+}
+
+
+.guest_cart .cart_name{
+	width:158px;height:38px;line-height:38px;border:1px solid #dddddd;display:block;background:url("icons.png") 13px -300px no-repeat;font-size:14px;color:#37ab40;text-indent:56px;
+}
+
+.guest_cart .goods_count{
+	width:40px;height:40px;text-align:center;line-height:40px;font-size:18px;
+	font-weight:bold;color:#fff;background-color:#ff8800;
+}
+
+/* 把标签默认的间距设为0 */
+body,ul,ol,p,h1,h2,h3,h4,h5,h6,dl,dd,select,input,textarea,form{margin:0;padding:0}
+
+
+/* 去掉列表默认的图标 */
+ul,ol{list-style:none;}
+
+/* 去掉em默认的斜体 */
+em{font-style: normal;}
+
+/* 去掉a标签默认的下划线 */
+a{text-decoration:none;}
+
+
+/* 去掉加链接时产生的框线 */
+img{border:0;}
+
+/* 清除浮动 */
+.clearfix:before,.clearfix:after{content:"";display:table}
+.clearfix:after{clear:both;}
+.clearfix{zoom:1}
+
+/* 浮动 */
+.fl{float:left}
+.fr{float:right}
+
+
+.menu1{
+height:80px;
+background-color:gold;
+position:relative;
+width:960px;
+top:0px;
+left:50%;
+margin-left:-480px;
+border-radius:30px;
+margin-bottom:20px;
+opacity:50%;
+}
+.menu1 h1{
+text-align:center;
+margin:20px;
+line-height:80px;
+}
+.login{
+list-style:none;
+margin:0px;
+padding:0px;
+left:20%;
+}
+.login li{
+display:inline-block;
+height:30px;
+margin:10px 20px;
+padding:0 10px;
+background-color:cyan;
+opacity:0.5;
+text-align:center;
+line-height:30px;
+border-radius:10px;
+}
+.login li a{
+display:block;
+text-decoration:none;
+text-align:center;
+color:#000;
+}
+.menu{
+width:694px;
+height:50px;
+/*background-color:cyan;*/
+/*去掉小圆点*/
+list-style:none;
+margin:20px auto;
+/*列表本身含padding*/
+padding:0;
+font-size:0;
+}
+.menu li{
+width:98px;
+height:48px;
+border:1px solid gold;
+background-color:#fff;
+display:inline-block;
+font-size:16px;
+margin-left:-1px;
+/*父元素可以用text-align属性设置子元素水平对齐方式*/
+/*text-align:center;*/
+/*		line-height:48px;*/
+}
+/*对链接样式进行设置*/
+.menu li a{
+/*background:gold;*/
+/*将链接转化为块元素*/
+display: block;
+/*水平居中*/
+text-align:center;
+/*垂直居中*/
+line-height:48px;
+/*取消下划线*/
+text-decoration:none;
+font-size:16px;
+font-family:'Microsofo Yahei';
+color:pink;
+}
+/*鼠标移动时改变属性*/
+.menu li a:hover{
+background-color:gold;
+color:#fff;
+}
+
+.daohang{
+list-style:none;
+margin:80px auto;
+padding:0px;
+width:958px;
+height:40px;
+border:1px solid #000;
+/*background-color:gold;*/
+text-align:center;
+font-size:0;
+}
+.daohang li{
+display:inline-block;
+font-size:14px;
+height:40px;
+}
+.daohang li a{
+display:block;
+height:40px;
+font:normal 14px/40px 'Microsoft Yahei';
+text-decoration:none;
+color:#000;
+}
+.daohang li span{
+display:block;
+margin:0 30px;
+}
+.daohang li a:hover{
+color:red;
+}
+.cakes_index{
+width:1130px;
+
+background:#AEEEEE;
+margin:0px auto;
+}
+.book_data{
+display:inline-block;
+list-style:none;
+margin-top:20px;
+margin-left:20px;
+padding:0px;
+width:200px;
+position:relative;
+}
+#book_title{
+width:90px;
+height:30px;
+margin:10px 0px;
+border-radius:10px;
+background-color:#DCDCDC;
+text-align:center;
+line-height:30px;
+}
+.book_data a{
+position:absolute;
+display:block;
+width:80px;
+height:30px;
+left:100px;
+top:194px;
+background-color:#DCDCDC;
+border-radius:10px;
+text-align:center;
+text-decoration:none;
+line-height:30px;
+color:#000;
+}
+.book_data a:hover{
+color:red;
+}
+
