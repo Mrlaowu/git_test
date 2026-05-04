@@ -85,24 +85,29 @@ def fetch_hacker_news() -> List[Dict]:
             'https://hacker-news.firebaseio.com/v0/topstories.json',
             timeout=REQUEST_TIMEOUT
         )
-        story_ids = response.json()[:20]  # 取前20条
+        story_ids = response.json()[:15]  # 改为获取 15 个候选
         
         articles = []
         for story_id in story_ids[:10]:  # 详细获取前10条
-            story_url = f'https://hacker-news.firebaseio.com/v0/item/{story_id}.json'
-            story = requests.get(story_url, timeout=REQUEST_TIMEOUT).json()
-            
-            if story and 'title' in story:
-                # 检查是否包含 AI 相关关键词
-                title_lower = story['title'].lower()
-                if any(keyword.lower() in title_lower for keyword in AI_KEYWORDS):
-                    article = {
-                        'title': story['title'],
-                        'link': story.get('url', f'https://news.ycombinator.com/item?id={story_id}'),
-                        'published': '',
-                        'source': 'Hacker News',
-                    }
-                    articles.append(article)
+            try:
+                story_url = f'https://hacker-news.firebaseio.com/v0/item/{story_id}.json'
+                story = requests.get(story_url, timeout=5).json()  # ✅ 减少单个请求超时
+                
+                if story and 'title' in story:
+                    # 检查是否包含 AI 相关关键词
+                    title_lower = story['title'].lower()
+                    if any(keyword.lower() in title_lower for keyword in AI_KEYWORDS):
+                        article = {
+                            'title': story['title'],
+                            'link': story.get('url', f'https://news.ycombinator.com/item?id={story_id}'),
+                            'published': '',
+                            'source': 'Hacker News',
+                        }
+                        articles.append(article)
+            except Exception as e:
+                # ✅ 单个故事获取失败不影响整体
+                print(f"   ⚠️  获取故事 {story_id} 失败: {str(e)}")
+                continue
         
         return articles
     except Exception as e:
@@ -114,6 +119,12 @@ def fetch_github_trending() -> List[Dict]:
     从 GitHub Trending 获取热门项目
     """
     try:
+        headers = {}
+        # ✅ 使用 GitHub Token 提高速率限制
+        token = os.environ.get('GITHUB_TOKEN')
+        if token:
+            headers['Authorization'] = f'token {token}'
+        
         response = requests.get(
             'https://api.github.com/search/repositories',
             params={
@@ -121,6 +132,7 @@ def fetch_github_trending() -> List[Dict]:
                 'sort': 'stars',
                 'order': 'desc'
             },
+            headers=headers,  # ✅ 添加认证头
             timeout=REQUEST_TIMEOUT
         )
         
@@ -214,22 +226,29 @@ def generate_markdown_report(articles: List[Dict]) -> str:
 
 """
     
-    # 按源组织内容
-    for source in sorted(articles_by_source.keys()):
-        articles_list = articles_by_source[source]
-        md_content += f"\n### 📌 {source} ({len(articles_list)} 条)\n\n"
-        
-        for i, article in enumerate(articles_list, 1):
-            title = article.get('title', 'N/A')
-            link = article.get('link', '#')
+    # 如果没有任何文章，显示特殊提示
+    if not articles:
+        md_content += """
+> ⚠️ 今日未收集到 AI 相关热点，请稍后重试或检查数据源
+
+"""
+    else:
+        # 按源组织内容
+        for source in sorted(articles_by_source.keys()):
+            articles_list = articles_by_source[source]
+            md_content += f"\n### 📌 {source} ({len(articles_list)} 条)\n\n"
             
-            # 转义 Markdown 特殊字符
-            title = title.replace('[', '\\[').replace(']', '\\]')
-            
-            if link and link != '#':
-                md_content += f"{i}. [{title}]({link})\n"
-            else:
-                md_content += f"{i}. {title}\n"
+            for i, article in enumerate(articles_list, 1):
+                title = article.get('title', 'N/A')
+                link = article.get('link', '#')
+                
+                # 转义 Markdown 特殊字符
+                title = title.replace('[', '\\[').replace(']', '\\]')
+                
+                if link and link != '#':
+                    md_content += f"{i}. [{title}]({link})\n"
+                else:
+                    md_content += f"{i}. {title}\n"
     
     # 页脚
     md_content += f"""
@@ -259,70 +278,103 @@ def generate_markdown_report(articles: List[Dict]) -> str:
 
 def main():
     """主函数"""
-    print("=" * 50)
-    print("🤖 开始采集 AI 科技热点...")
-    print("=" * 50)
-    
-    beijing_time = get_beijing_time()
-    print(f"⏰ 北京时间: {beijing_time.strftime('%Y-%m-%d %H:%M:%S')}\n")
-    
-    all_articles = []
-    
-    # 1. 从 RSS 源获取数据
-    print("📡 获取 RSS 源数据...")
-    for url, source_name in RSS_FEEDS:
-        print(f"   → {source_name}...", end=' ')
-        articles = fetch_rss_feed(url)
+    try:
+        print("=" * 50)
+        print("🤖 开始采集 AI 科技热点...")
+        print("=" * 50)
+        
+        beijing_time = get_beijing_time()
+        print(f"⏰ 北京时间: {beijing_time.strftime('%Y-%m-%d %H:%M:%S')}\n")
+        
+        all_articles = []
+        
+        # 1. 从 RSS 源获取数据
+        print("📡 获取 RSS 源数据...")
+        for url, source_name in RSS_FEEDS:
+            print(f"   → {source_name}...", end=' ')
+            articles = fetch_rss_feed(url)
+            all_articles.extend(articles)
+            print(f"✓ {len(articles)} 条")
+            time.sleep(0.5)  # 减少延迟
+        
+        # 2. 从 Hacker News 获取数据
+        print("📡 获取 Hacker News 数据...", end=' ')
+        articles = fetch_hacker_news()
         all_articles.extend(articles)
         print(f"✓ {len(articles)} 条")
-        time.sleep(1)  # 避免请求过快
-    
-    # 2. 从 Hacker News 获取数据
-    print("📡 获取 Hacker News 数据...", end=' ')
-    articles = fetch_hacker_news()
-    all_articles.extend(articles)
-    print(f"✓ {len(articles)} 条")
-    time.sleep(1)
-    
-    # 3. 从 GitHub Trending 获取数据
-    print("📡 获取 GitHub Trending 数据...", end=' ')
-    articles = fetch_github_trending()
-    all_articles.extend(articles)
-    print(f"✓ {len(articles)} 条")
-    time.sleep(1)
-    
-    print(f"\n📊 初始数据: {len(all_articles)} 条\n")
-    
-    # 4. 过滤 AI 相关内容
-    print("🔍 过滤 AI 相关内容...", end=' ')
-    filtered_articles = filter_by_keywords(all_articles, AI_KEYWORDS)
-    print(f"✓ {len(filtered_articles)} 条\n")
-    
-    # 5. 去除重复
-    print("🧹 去除重复数据...", end=' ')
-    deduplicated = deduplicate_articles(filtered_articles)
-    print(f"✓ {len(deduplicated)} 条\n")
-    
-    # 6. 生成报告
-    print("📝 生成 Markdown 报告...")
-    report = generate_markdown_report(deduplicated)
-    
-    # 7. 保存输出文件
-    output_path = '.github/scripts/digest_output.md'
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    
-    with open(output_path, 'w', encoding='utf-8') as f:
-        f.write(report)
-    
-    print(f"✅ 报告已保存到: {output_path}\n")
-    
-    # 8. 输出摘要
-    print("=" * 50)
-    print("✨ 采集完成！")
-    print("=" * 50)
-    print(f"📈 最终收集 {len(deduplicated)} 条 AI 热点")
-    print(f"📝 报告将以 GitHub Issue 形式发布")
-    print()
+        time.sleep(0.5)
+        
+        # 3. 从 GitHub Trending 获取数据
+        print("📡 获取 GitHub Trending 数据...", end=' ')
+        articles = fetch_github_trending()
+        all_articles.extend(articles)
+        print(f"✓ {len(articles)} 条")
+        
+        print(f"\n📊 初始数据: {len(all_articles)} 条\n")
+        
+        # 4. 过滤 AI 相关内容
+        print("🔍 过滤 AI 相关内容...", end=' ')
+        filtered_articles = filter_by_keywords(all_articles, AI_KEYWORDS)
+        print(f"✓ {len(filtered_articles)} 条\n")
+        
+        # 5. 去除重复
+        print("🧹 去除重复数据...", end=' ')
+        deduplicated = deduplicate_articles(filtered_articles)
+        print(f"✓ {len(deduplicated)} 条\n")
+        
+        # 6. 生成报告
+        print("📝 生成 Markdown 报告...")
+        report = generate_markdown_report(deduplicated)
+        
+        # 7. 保存输出文件
+        output_path = '.github/scripts/digest_output.md'
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        
+        with open(output_path, 'w', encoding='utf-8') as f:
+            f.write(report)
+        
+        print(f"✅ 报告已保存到: {output_path}\n")
+        
+        # 8. 输出摘要
+        print("=" * 50)
+        print("✨ 采集完成！")
+        print("=" * 50)
+        print(f"📈 最终收集 {len(deduplicated)} 条 AI 热点")
+        print(f"📝 报告将以 GitHub Issue 形式发布")
+        print()
+        
+    except Exception as e:
+        # ✅ 全局异常处理
+        print(f"\n❌ 采集失败: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        
+        # 生成错误报告
+        error_report = f"""# ❌ AI科技热点日报采集失败
+
+**错误时间**: {get_beijing_time().strftime('%Y-%m-%d %H:%M:%S')}
+
+**错误信息**: {str(e)}
+
+## 🔍 调试建议
+
+1. 检查网络连接是否正常
+2. 检查 RSS 源是否可访问
+3. 查看完整错误日志
+4. 尝试手动运行脚本进行调试
+
+## 📝 错误堆栈
+
+```
+{traceback.format_exc()}
+```
+"""
+        output_path = '.github/scripts/digest_output.md'
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        with open(output_path, 'w', encoding='utf-8') as f:
+            f.write(error_report)
+        
+        sys.exit(1)
 
 if __name__ == '__main__':
     main()
